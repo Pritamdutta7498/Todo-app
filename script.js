@@ -5,7 +5,7 @@ let todoElementList = document.querySelector(".js-todo-list");
 function addTodo() {
   const todoNameValue = todoName.value;
   const todoDateValue = todoDate.value;
-  console.log(todoNameValue, todoDateValue);
+  // console.log(todoNameValue, todoDateValue);
 
   const todoItem = {
     name: todoNameValue,
@@ -31,15 +31,10 @@ function addTodo() {
 function renderTodoList() {
   let todoList = JSON.parse(localStorage.getItem("todoList"));
   todoElementList.innerHTML = "";
-console.log(todoList);
+  // console.log(todoList);
 
   todoList.forEach((todo, i) => {
-    // const div = document.createElement("div");
-    // div.className = "todo-list-data";
-    // const span = document.createElement("span");
-    console.log(todo.name);
-
-   let todoElementData = `
+    let todoElementData = `
     <div class='todo-list-data'> 
       <span>${todo.name}</span>
       <span>${todo.date}</span>
@@ -49,9 +44,15 @@ console.log(todoList);
     `;
     // append each
     todoElementList.innerHTML += todoElementData;
-    
   });
 }
 
+//delete each todo
+function deleteTodo(i) {
+  let todoList = JSON.parse(localStorage.getItem("todoList"));
+  todoList.splice(i, 1);
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+  renderTodoList();
+}
 
 renderTodoList();
