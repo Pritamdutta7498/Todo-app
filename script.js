@@ -12,7 +12,10 @@ function addTodo() {
     date: todoDateValue,
     completed: false,
   };
-  let todoList = JSON.parse(localStorage.getItem('todoList'));
+
+  let todoList = JSON.parse(localStorage.getItem('todoList'))|| [];
+
+  todoList.push(todoItem);
 
   console.log(todoList);
 
