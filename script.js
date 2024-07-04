@@ -13,11 +13,17 @@ function addTodo() {
     completed: false,
   };
 
-  let todoList = JSON.parse(localStorage.getItem('todoList'))|| [];
-
+  let todoList= JSON.parse(localStorage.getItem('todoList'));
+  if (!Array.isArray(todoList)) {
+    todoList = [];
+  };
   todoList.push(todoItem);
 
   console.log(todoList);
 
-  localStorage.setItem("todoList", JSON.stringify(todoItem));
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+
+  todoName.value = '';
+  todoDate.value = '';
+
 }
