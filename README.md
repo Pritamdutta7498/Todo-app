@@ -23,4 +23,4 @@ A simple Todo application to help you keep track of your tasks and deadlines. Th
 
 1. **Clone the Repository**
    ```sh
-   [https://github.com/Pritamdutta7498/Todo-app.git]
+   https://github.com/Pritamdutta7498/Todo-app.git
