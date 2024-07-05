@@ -21,10 +21,11 @@ body {
 
 .input-data {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .input-data input {
-  width: 265px;
+  width: 280px;
   height: 40px;
   border-radius: 5px;
   border: none;
@@ -34,7 +35,7 @@ body {
 }
 
 .input-data button {
-  width: 100px;
+  width: 135px;
   height: 40px;
   margin-left: 10px;
   border-radius: 5px;
@@ -55,6 +56,23 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  background-color: #0000003b;
+  border-radius: 10px;
+  color: #ffffff;
+  border: 1px solid rgb(2, 176, 245);
+  padding: 30px;
+}
+
+.empty-todo-text {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 100px;
+  color: rgba(245, 246, 248, 0.89);
+  font-family: 'Lucida Sans';
+  padding: 30px;
+  background-color: #6d6b6b3b;
+  border-radius: 10px;
+
 }
 
 .todo-list-data span {
@@ -116,31 +134,50 @@ body {
 }
 
 /* Desktop styles */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) and (max-width: 2000px) {
   .main-layout {
-    width: 60%;
+    width: 80%;
   }
-
+  .input-data input {
+    width: 22rem;
+  }
+  .input-data button {
+    width: 10rem;
+    height: 40px;
+    margin-left: 10px;
+  }
+  
   .todo-list-data {
-    width: 700px;
+    margin: 15px auto;
+    width: 70%;
   }
 }
 
 /* Tablet styles */
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
-  .main-layout {
-    width: 70%;
+  .input-data {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .input-data input {
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  .input-data button {
+    margin-top: 20px;
+    width: 85%;
   }
 
   .todo-list-data {
-    width: 500px;
+    width: 100%;
   }
 }
 
 /* Mobile styles */
 @media only screen and (max-width: 767px) {
   body {
-
     background-image: url('./asset/2.gif');
     background-attachment: fixed;
     background-repeat: repeat;
@@ -150,24 +187,31 @@ body {
 
   .main-layout {
     width: 90%;
-
   }
 
   .todo-list-data {
-    width: 300px;
-    grid-template-columns: 2fr 1fr 1fr;
+    width: 80%;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .todo-list-data span {
+    text-align: left;
+    padding-left: 3px;
   }
 
   .input-data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+  }
 
+  .input-data input {
+    margin-top: 10px;
+    width: 80%;
   }
 
   .input-data button {
-    width: 285px;
+    margin-top: 20px;
+    width: 85%;
   }
 
   .todo-list-data {
@@ -177,7 +221,6 @@ body {
     grid-template-columns: 1fr 0fr;
     gap: 10px;
     padding: 30px;
-
     background-color: #0000003b;
     border-radius: 10px;
     color: #ffffff;

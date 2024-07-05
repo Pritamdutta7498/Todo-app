@@ -7,6 +7,12 @@ function addTodo() {
   const todoDateValue = todoDate.value;
   // console.log(todoNameValue, todoDateValue);
 
+   // Check if the input fields are empty
+   if (todoNameValue === "" || todoDateValue === "") {
+    alert("Please fill in both the todo name and date. Try again.");
+    return;
+   }
+
   const todoItem = {
     name: todoNameValue,
     date: todoDateValue,
@@ -31,6 +37,12 @@ function addTodo() {
 function renderTodoList() {
   let todoList = JSON.parse(localStorage.getItem("todoList"));
   todoElementList.innerHTML = "";
+
+  // sets the text if there is no todoList
+  if (!todoList || todoList.length === 0) {
+    todoElementList.innerHTML = `<h2 class="empty-todo-text">Add some Todo to see your todo list</h2>`;
+    return;
+  }
 
   todoList.forEach((todo, i) => {
     let todoElementData = `
