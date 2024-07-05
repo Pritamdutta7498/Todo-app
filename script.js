@@ -31,11 +31,7 @@ function addTodo() {
 function renderTodoList() {
   let todoList = JSON.parse(localStorage.getItem("todoList"));
   todoElementList.innerHTML = "";
-  // console.log(todoList);
 
-  /* 
-  <button onclick="toggleComplete(${index})" class="todo-complete-btn ${todoItem.completed ? "completed" : "blue-btn"}"> ${todoItem.completed ? "Completed" : "Complete"} </button>
-  */
   todoList.forEach((todo, i) => {
     let todoElementData = `
     <div class='todo-list-data'> 
@@ -59,16 +55,15 @@ function renderTodoList() {
 //todo completed
 function toggleComplete(i) {
   let todoList = JSON.parse(localStorage.getItem("todoList"));
-// console.log(todoList);
-// console.log(i);
+  // console.log(todoList);
+  // console.log(i);
   if (!todoList[i].completed) {
     todoList[i].completed = true;
     // Show the modal window with the GIF
-    // toggleModal();
+    toggleModal();
     // Change the button color to green after showing the GIF
     setTimeout(() => {
-      const completeButton =
-        document.querySelectorAll(".todo-complete-btn")[i];
+      const completeButton = document.querySelectorAll(".todo-complete-btn")[i];
       completeButton.classList.remove("blue-btn");
       completeButton.classList.add("completed");
     }, 5000);
@@ -77,6 +72,27 @@ function toggleComplete(i) {
   localStorage.setItem("todoList", JSON.stringify(todoList));
   renderTodoList();
 }
+
+// Add a modal window element to the HTML
+const modalElement = document.createElement("div");
+modalElement.className = "modal";
+modalElement.innerHTML = `
+  <div class="modal-content">
+    <img src='./asset/4.gif' alt="Checked">
+  </div>
+`;
+document.body.appendChild(modalElement);
+
+// Add a function to toggle the modal window
+function toggleModal() {
+  const modalElement = document.querySelector(".modal");
+
+  modalElement.classList.toggle("show");
+  setTimeout(() => {
+    modalElement.classList.remove("show");
+  }, 3000);
+}
+
 //delete each todo
 function deleteTodo(i) {
   let todoList = JSON.parse(localStorage.getItem("todoList"));

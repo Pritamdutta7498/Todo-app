@@ -1,18 +1,186 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-size: large;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-image: url('./asset/1.gif');
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: 50px;
+}
+
+.main-layout {
+  color: #ffffff;
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.data {
+  margin-top: 50px;
+}
+
+.data input {
+  width: 265px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  padding: 0 10px;
+}
+
+.data button {
+  width: 100px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: white;
+  font-size: 16px;
+  background-color: rgba(81, 119, 241, 0.89);
+}
+
+.todo-item {
+  margin: 15px auto;
+  width: 565px;
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.todo-item span {
+  text-align: left;
+}
+
+.todo-delete-btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: white;
+  font-size: 16px;
+  background-color: rgba(252, 68, 68, 0.952);
+}
+
 .todo-complete-btn {
-    width: 100px;
-    height: 30px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+}
+
+.todo-complete-btn.completed {
+  background-color: #34c759;
+  width: 100px;
+  height: 30px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content img {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1200px) {
+  .main-layout {
+    width: 60%;
   }
-  
-  .todo-complete-btn.completed {
-    background-color: #34c759;
-    width: 100px;
-    height: 30px;
+  .todo-item {
+    width: 700px;
   }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .main-layout {
+    width: 70%;
+  }
+  .todo-item {
+    width: 500px;
+  }
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 767px) {
+  body {
+    
+    background-image: url('./2.gif');
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: 50px;
+  }
+  .main-layout {
+    width: 90%;
+    
+  }
+  .todo-item {
+    width: 300px;
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+  }
+  .data button {
+    width: 285px;
+  }
+  .todo-item {
+    margin: 20px auto;
+    width:80%;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    background-color: #ef72f3cc;
+    border-radius: 10px;
+    padding: 10px;
+    color: #000;
+
+  }
+ 
+  .todo-delete-btn {
+    width: 80px;
+  }
+  .todo-complete-btn {
+    width: 80px;
+  }
+  .modal-content img {
+    width: 200px;
+    height: 200px;
+  }
+}
