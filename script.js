@@ -33,11 +33,21 @@ function renderTodoList() {
   todoElementList.innerHTML = "";
   // console.log(todoList);
 
+  /* 
+  <button onclick="toggleComplete(${index})" class="todo-complete-btn ${todoItem.completed ? "completed" : "blue-btn"}"> ${todoItem.completed ? "Completed" : "Complete"} </button>
+  */
   todoList.forEach((todo, i) => {
     let todoElementData = `
     <div class='todo-list-data'> 
       <span>${todo.name}</span>
       <span>${todo.date}</span>
+
+       <button onclick="toggleComplete(${i})" class="todo-complete-btn 
+          ${todo.completed ? "completed" : "blue-btn"}">
+          ${todo.completed ? "Completed" : "Complete"} 
+      </button>
+
+
       <button onclick="deleteTodo(${i})" class="deleteBtn">Delete
       </button>
     </div>
@@ -46,7 +56,27 @@ function renderTodoList() {
     todoElementList.innerHTML += todoElementData;
   });
 }
-
+//todo completed
+function toggleComplete(i) {
+  let todoList = JSON.parse(localStorage.getItem("todoList"));
+// console.log(todoList);
+// console.log(i);
+  if (!todoList[i].completed) {
+    todoList[i].completed = true;
+    // Show the modal window with the GIF
+    // toggleModal();
+    // Change the button color to green after showing the GIF
+    setTimeout(() => {
+      const completeButton =
+        document.querySelectorAll(".todo-complete-btn")[i];
+      completeButton.classList.remove("blue-btn");
+      completeButton.classList.add("completed");
+    }, 5000);
+  }
+  // Save the updated todo list to localStorage
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+  renderTodoList();
+}
 //delete each todo
 function deleteTodo(i) {
   let todoList = JSON.parse(localStorage.getItem("todoList"));
