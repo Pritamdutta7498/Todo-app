@@ -178,11 +178,11 @@ body {
 /* Mobile styles */
 @media only screen and (max-width: 767px) {
   body {
-    background-image: url('./asset/2.gif');
+    background-image: url('./asset/3.gif');
     background-attachment: fixed;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50px;
+    background-position: 50%;
   }
 
   .main-layout {
