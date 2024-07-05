@@ -39,7 +39,7 @@ function renderTodoList() {
       <span>${todo.date}</span>
 
        <button onclick="toggleComplete(${i})" class="todo-complete-btn 
-          ${todo.completed ? "completed" : "blue-btn"}">
+          ${todo.completed ? "green-btn" : "blue-btn"}">
           ${todo.completed ? "Completed" : "Complete"} 
       </button>
 
@@ -65,7 +65,7 @@ function toggleComplete(i) {
     setTimeout(() => {
       const completeButton = document.querySelectorAll(".todo-complete-btn")[i];
       completeButton.classList.remove("blue-btn");
-      completeButton.classList.add("completed");
+      completeButton.classList.add("green-btn");
     }, 5000);
   }
   // Save the updated todo list to localStorage
@@ -78,7 +78,7 @@ const modalElement = document.createElement("div");
 modalElement.className = "modal";
 modalElement.innerHTML = `
   <div class="modal-content">
-    <img src='./asset/4.gif' alt="Checked">
+    <img src='./asset/4.gif' alt="modal-blast">
   </div>
 `;
 document.body.appendChild(modalElement);

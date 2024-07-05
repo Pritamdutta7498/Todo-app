@@ -19,11 +19,11 @@ body {
   text-align: center;
 }
 
-.data {
+.input-data {
   margin-top: 50px;
 }
 
-.data input {
+.input-data input {
   width: 265px;
   height: 40px;
   border-radius: 5px;
@@ -33,7 +33,7 @@ body {
   padding: 0 10px;
 }
 
-.data button {
+.input-data button {
   width: 100px;
   height: 40px;
   margin-left: 10px;
@@ -46,7 +46,7 @@ body {
   background-color: rgba(81, 119, 241, 0.89);
 }
 
-.todo-item {
+.todo-list-data {
   margin: 15px auto;
   width: 565px;
   display: grid;
@@ -57,11 +57,12 @@ body {
   gap: 10px;
 }
 
-.todo-item span {
+.todo-list-data span {
   text-align: left;
+  padding-left: 10px;
 }
 
-.todo-delete-btn {
+.deleteBtn {
   width: 100px;
   height: 30px;
   border-radius: 5px;
@@ -86,7 +87,7 @@ body {
   display: block;
 }
 
-.todo-complete-btn.completed {
+.todo-complete-btn.green-btn {
   background-color: #34c759;
   width: 100px;
   height: 30px;
@@ -111,6 +112,7 @@ body {
   width: 300px;
   height: 300px;
   margin: 20px auto;
+  background-color: transparent;
 }
 
 /* Desktop styles */
@@ -118,7 +120,8 @@ body {
   .main-layout {
     width: 60%;
   }
-  .todo-item {
+
+  .todo-list-data {
     width: 700px;
   }
 }
@@ -128,7 +131,8 @@ body {
   .main-layout {
     width: 70%;
   }
-  .todo-item {
+
+  .todo-list-data {
     width: 500px;
   }
 }
@@ -136,51 +140,52 @@ body {
 /* Mobile styles */
 @media only screen and (max-width: 767px) {
   body {
-    
-    background-image: url('./2.gif');
+
+    background-image: url('./asset/2.gif');
     background-attachment: fixed;
     background-repeat: repeat;
     background-size: cover;
     background-position: 50px;
   }
+
   .main-layout {
     width: 90%;
-    
+
   }
-  .todo-item {
+
+  .todo-list-data {
     width: 300px;
     grid-template-columns: 2fr 1fr 1fr;
   }
-  .data{
+
+  .input-data {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    
-  }
-  .data button {
-    width: 285px;
-  }
-  .todo-item {
-    margin: 20px auto;
-    width:80%;
-    display: grid;
-    grid-template-columns: 5fr 2fr;
-    background-color: #ef72f3cc;
-    border-radius: 10px;
-    padding: 10px;
-    color: #000;
 
   }
- 
+
+  .input-data button {
+    width: 285px;
+  }
+
+  .todo-list-data {
+    margin: 20px auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    gap: 10px;
+    padding: 30px;
+
+    background-color: #0000003b;
+    border-radius: 10px;
+    color: #ffffff;
+    border: 1px solid rgb(2, 176, 245);
+
+  }
+
   .todo-delete-btn {
     width: 80px;
-  }
-  .todo-complete-btn {
-    width: 80px;
-  }
-  .modal-content img {
-    width: 200px;
-    height: 200px;
   }
 }
